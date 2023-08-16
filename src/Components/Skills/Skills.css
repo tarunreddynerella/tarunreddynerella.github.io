@@ -1,0 +1,25 @@
+.skills-desc{
+    color: #CCD6F6;
+    text-align: justify;
+}
+
+img{
+    /* width: 90px;
+    height: 90px;
+    padding: 15px; */
+    .img:hover{
+        transform: scale(1.25);
+    }
+}
+
+.devicon{
+    width: 90px;
+    height: 90px;
+    padding: 15px;
+    
+
+}
+
+.devicon:hover{
+    transform: scale(1.5);
+}

@@ -1,0 +1,27 @@
+/* Navbar.css */
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    background-color: #0A192F;
+}
+
+.navbar-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #59E2C5; /* Change this to your preferred color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    /* Optional: Add some hover effect */
+    &:hover {
+        background-color: #4BC7B1; /* Slightly darker shade for hover */
+    }
+}
+
+
+.topnav-right {
+    float: right;
+  }
