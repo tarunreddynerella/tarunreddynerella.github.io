@@ -1,34 +1,41 @@
-import React from 'react';
-import './Education.css';
+import React, { useState } from "react";
+import "./Education.css";
+import { EducationInfo } from "../StaticInfo/EducationInfo";
 
 function Education() {
+  const [selectedEducation, setSelectedEducation] = useState(null);
+
+  const handleEducationClick = (index) => {
+    if (selectedEducation === index) {
+      setSelectedEducation(null);
+    } else {
+      setSelectedEducation(index);
+    }
+  };
+
   return (
     <div>
-      <h2 style={{ color: '#59E2C5' }}>Education</h2>
+      <h2 style={{ color: "#59E2C5" }}>Education</h2>
       <div className="education-container">
-        {/* First Card */}
-        <div className="card education-card">
-          <div className="card-content">
-            <span className="card-title">Master of Science | Computer Science</span>
-            <p>University of Colorado Denver | Denver</p>
-            <p>AUG 2022 - PRESENT</p>
+        {EducationInfo.map((edu, index) => (
+          <div key={index} className="card education-card hoverable">
+            <div
+              className="card-content"
+              onClick={() => handleEducationClick(index)}
+            >
+              <span className="card-title">{edu.title}</span>
+              <p>{edu.institution}</p>
+              <p>{edu.date}</p>
+            </div>
+            <div
+              className={`card-action ${
+                selectedEducation === index ? "active" : ""
+              }`}
+            >
+              <p>{edu.description}</p>
+            </div>
           </div>
-          <div className="card-action">
-            <p>Course Works: Big Data Systems, Artificial Intelligence, Deep Learning, Algorithms</p>
-          </div>
-        </div>
-
-        {/* Second Card */}
-        <div className="card education-card">
-          <div className="card-content">
-            <span className="card-title">Bachelor of Technology | Computer Science and Engineering</span>
-            <p>JB Institute of Engineering and Technology | Hyderabad</p>
-            <p>AUG 2018 - JUNE 2022</p>
-          </div>
-          <div className="card-action">
-            <p>Cumulative GPA: 8.31/10</p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

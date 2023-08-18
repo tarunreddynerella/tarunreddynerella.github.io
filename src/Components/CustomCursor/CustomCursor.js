@@ -1,28 +1,37 @@
-import React, { useEffect, useRef } from 'react';
-import './CustomCursor.css';
+import React, { useEffect, useRef } from "react";
+import "./CustomCursor.css";
 
 const CustomCursor = () => {
   const cursorRef = useRef(null);
 
   useEffect(() => {
     const moveCursor = (e) => {
-      cursorRef.current.style.left = `${e.pageX}px`;
-      cursorRef.current.style.top = `${e.pageY}px`;
+      cursorRef.current.style.left = `${e.clientX}px`;
+      cursorRef.current.style.top = `${e.clientY}px`;
     };
 
-    document.addEventListener('mousemove', moveCursor);
+    document.addEventListener("mousemove", moveCursor);
 
     return () => {
-      document.removeEventListener('mousemove', moveCursor);
+      document.removeEventListener("mousemove", moveCursor);
     };
   }, []);
 
   return (
-    <div ref={cursorRef} className="cursor">
-      <div className="ripple" style={{ width: '1in', height: '1in', animationDelay: '0s' }}></div>
-      <div className="ripple" style={{ width: '2in', height: '2in', animationDelay: '0.3s' }}></div>
-      <div className="ripple" style={{ width: '4in', height: '4in', animationDelay: '0.6s' }}></div>
-      <div className="ripple" style={{ width: '6in', height: '6in', animationDelay: '0.9s' }}></div>
+    <div ref={cursorRef} className="cursor-container">
+      <div className="cursor">
+        <div
+          className="ripple"
+          style={{
+            width: "0.01in",
+            height: "0.01in",
+            boxShadow: "0 0 1500px 200px #184868",
+            opacity: "0.3",
+          }}
+        ></div>
+        <div className="ripple" style={{ width: "2in", height: "2in" }}></div>
+        <div className="ripple" style={{ width: "6in", height: "6in" }}></div>
+      </div>
     </div>
   );
 };
