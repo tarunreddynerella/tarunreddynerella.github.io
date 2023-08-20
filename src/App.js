@@ -22,13 +22,7 @@ function App() {
         "Experience",
         "Contact",
       ];
-      let currentSection = "About";
-
-      // Special condition for the "About" section
-      if (window.scrollY < window.innerHeight / 4) {
-        setActiveItem("About");
-        return;
-      }
+      let currentSection = activeItem; // Use the current active item as the default
 
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -50,7 +44,7 @@ function App() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [activeItem]); // Add activeItem as a dependency
 
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
@@ -77,7 +71,6 @@ function App() {
               <div className="pinned">
                 <p className="flow-text">Hi, I'm</p>
                 <h3 className="header">Tarun Reddy</h3>
-                <p>Graduate Student at UC Denver</p>
 
                 <ul className="collection">
                   {[
@@ -130,7 +123,7 @@ function App() {
           </div>
         </div>
         <div className="fixed-action-btn">
-          <a className="btn-floating btn-large red" onClick={scrollToTop}>
+          <a className="btn-floating btn-large" href="#!" onClick={scrollToTop}>
             <i className="large material-icons">arrow_upward</i>
           </a>
         </div>

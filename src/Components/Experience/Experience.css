@@ -35,6 +35,24 @@
     opacity: 1;
   }
   
+/* Styling for the title */
+.card-title {
+    color: white; /* White color for the title */
+    font-size: 1.5rem; /* Equivalent to h3 size */
+    font-weight: bold; /* Bold font weight */
+}
+
+/* Styling for the date */
+.experience-card .card-content p {
+    color: #A8B2D1; /* Color for the date */
+    font-weight: 600; /* A bit thicker font weight */
+}
+
+/* Styling for the description */
+.card-action p {
+    color: #A8B2D1; /* Color for the description */
+    font-weight: 600; /* A bit thicker font weight */
+}
 
   
   

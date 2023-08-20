@@ -14,7 +14,7 @@ function Experience() {
 
   return (
     <div>
-      <h2 style={{ color: "#59E2C5" }}>Experience</h2>
+      {/* <h2 style={{ color: "#59E2C5" }}>Experience</h2> */}
       <div className="experience-container">
         {ExperiencesInfo.map((exp, index) => (
           <div key={index} className="card experience-card hoverable">

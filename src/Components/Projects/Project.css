@@ -45,4 +45,13 @@
     opacity: 1; /* This ensures the content becomes fully visible on hover */
   }
   
-  
+  .project-title {
+    color: white;
+    /* font-weight: bold; */
+    font-size: 1.5rem; /* Equivalent to h3 size */
+}
+
+.project-date, .project-description {
+    color: #A8B2D1;
+    font-weight: 600; /* This will make the text a bit thicker */
+}

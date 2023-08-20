@@ -34,3 +34,19 @@
     max-height: 200px;
     opacity: 1;
 }
+
+
+.card-title {
+    font-size: 1.5rem; /* h3 size */
+    font-weight: bold;
+    color: white;
+}
+
+.card-content p {
+    color: #A8B2D1;
+    font-weight: 600; /* Making the text a bit thicker */
+}
+
+.edu-description {
+    font-weight: 600; /* This will make the text a bit thicker */
+}

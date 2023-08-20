@@ -3,17 +3,21 @@
     display: flex;
     justify-content: flex-end;
     padding: 10px 20px;
-    background-color: #0A192F;
+    background-color: #10142c;
 }
 
 .navbar-button {
     padding: 10px 20px;
     margin: 0 10px;
-    background-color: #59E2C5; /* Change this to your preferred color */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    color: white; /* Set the text color to white */
+    text-decoration: none; /* Remove any underlines */
+    outline: none; /* Remove focus outline */
+    border: none; /* Remove any borders */
+    background-color: #59E2C5; /* Set the background color */
+    transition: background-color 0.3s ease; /* Transition effect for hover */
 
     /* Optional: Add some hover effect */
     &:hover {

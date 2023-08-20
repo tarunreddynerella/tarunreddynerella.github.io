@@ -15,7 +15,7 @@ function Education() {
 
   return (
     <div>
-      <h2 style={{ color: "#59E2C5" }}>Education</h2>
+      {/* <h2 style={{ color: "#59E2C5" }}>Education</h2> */}
       <div className="education-container">
         {EducationInfo.map((edu, index) => (
           <div key={index} className="card education-card hoverable">
@@ -30,7 +30,7 @@ function Education() {
             <div
               className={`card-action ${
                 selectedEducation === index ? "active" : ""
-              }`}
+              } edu-description`}
             >
               <p>{edu.description}</p>
             </div>
