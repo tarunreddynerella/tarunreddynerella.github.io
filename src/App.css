@@ -5,16 +5,8 @@ body, html, .App {
   background-color: #10142c;
 }
 
-
-
-
-
 p {
   color: #8892B0;
-}
-
-.container {
-  height: 100%;
 }
 
 html {
@@ -26,7 +18,6 @@ html {
   right: 25px;
 }
 
-/* Styling for the collection (menu) */
 .collection {
   background-color: inherit;
   border: none;
@@ -35,7 +26,7 @@ html {
 .collection .collection-item {
   background-color: inherit !important;
   color: #A8B2D1;
-  border: none !important; /* This will remove the white lines */
+  border: none !important;
   transition: font-size 0.3s, color 0.3s;
 }
 
@@ -51,36 +42,26 @@ html {
 
 .right-section section {
   display: flex;
-  flex-direction: column; /* Stack children vertically */
-  align-items: center; /* Centers content horizontally */
-  justify-content: center; /* Centers content vertically */
-  padding: 20px; /* Add some padding around the content */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
-
-
-
-
-
 
 .custom-card {
   background-color: transparent;
-  transition: background-color 0.3s, box-shadow 0.3s; /* Added transition for box-shadow */
+  transition: background-color 0.3s, box-shadow 0.3s;
   border: 1px solid transparent;
   min-height: 50px;
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  overflow: hidden; /* Ensures content doesn't spill outside rounded corners */
-}
-
-.custom-card .card-content {
-  padding: 0;
-  margin: 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .custom-card:hover {
-  background-color: rgba(255, 255, 255, 0.05); /* Reduced the intensity of white on hover */
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Made the border more subtle on hover */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Adjusted shadow for a softer appearance on hover */
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .header {
@@ -102,23 +83,113 @@ html {
 }
 
 #About .about-desc {
-  font-weight: 600; /* This will make the font a bit thicker. You can adjust the value as needed. */
+  font-weight: 600;
 }
-
 
 .pinned {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* This will center the content vertically */
-  height: 70vh; /*This will make sure the container takes the full height of the viewport */
+  justify-content: center;
+  height: 70vh;
 }
-
 
 #Skills,
 #Education,
 #Projects,
 #Experience,
 #Contact {
-    margin-bottom: 50vh; /* Add a bottom margin of 50vh to each of these sections */
+    margin-bottom: 30vh;
 }
 
+#Contact.custom-card {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+
+
+
+
+
+
+
+
+
+/* Default styles for larger screens */
+/* Default styles for larger screens */
+.pinned {
+  display: flex; /* Display the pinned menu on larger screens */
+}
+
+.mobile-menu-button, .mobile-menu {
+  display: none; /* Hide the mobile button and menu on larger screens */
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .pinned {
+    display: none; /* Hide the pinned menu on mobile */
+  }
+
+  .mobile-menu-button {
+    display: flex; /* Show the mobile button on mobile screens */
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    background-color: #59E2C5; /* Set the background color */
+    border: none;
+    border-radius: 5px;
+    width: 40px; /* Set a fixed width */
+    height: 30px; /* Set a fixed height */
+    padding: 5px;
+    cursor: pointer;
+    outline: none;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .hamburger-line {
+    width: 100%; /* Take the full width of the parent button */
+    height: 4px; /* Set a fixed height for the line */
+    background-color: black; /* Set the color of the line */
+    border-radius: 2px; /* Optional: to make the lines slightly rounded */
+  }
+
+  .mobile-menu.visible {
+    display: flex; /* Only display the mobile menu when it's set to visible */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-menu .collection {
+    width: 80%;
+    background-color: #10142c;
+    border-radius: 10px;
+  }
+}
+
+/* Default styles for larger screens */
+.mobile-header {
+  display: none; /* Hide the mobile header on larger screens */
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .mobile-header {
+    display: block; /* Show the mobile header on mobile screens */
+    text-align: center; /* Center the text */
+    color: white; /* Set the text color to white */
+    margin-top: 20px; /* Add some top margin for spacing */
+  }
+}

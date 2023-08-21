@@ -14,9 +14,13 @@ function Navbar() {
                 >
                     Resume
                 </a>
-            <button className="navbar-button" onClick={() => { /* Handle Resume click */ }}>
-            Contact Me
-            </button>
+            <a 
+                    href="#Contact" 
+                    rel="noopener noreferrer"
+                    className="navbar-button"
+                >
+                    Contact Me
+                </a>
             </div>
         </div>
     );

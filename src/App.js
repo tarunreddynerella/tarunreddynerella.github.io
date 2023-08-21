@@ -11,6 +11,7 @@ import CustomCursor from "./Components/CustomCursor/CustomCursor";
 
 function App() {
   const [activeItem, setActiveItem] = useState("About");
+  const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,7 +23,7 @@ function App() {
         "Experience",
         "Contact",
       ];
-      let currentSection = activeItem; // Use the current active item as the default
+      let currentSection = activeItem;
 
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -44,12 +45,17 @@ function App() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [activeItem]); // Add activeItem as a dependency
+  }, [activeItem]);
 
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     section.scrollIntoView({ behavior: "smooth" });
     setActiveItem(sectionId);
+    setMobileMenuVisible(false); // Close the mobile menu after clicking an item
+  };
+
+  const toggleMobileMenu = () => {
+    setMobileMenuVisible(!mobileMenuVisible);
   };
 
   const scrollToTop = () => {
@@ -65,13 +71,40 @@ function App() {
 
       <div className="App">
         <Navbar />
+        <button className="mobile-menu-button" onClick={toggleMobileMenu}>
+    <div className="hamburger-line"></div>
+    <div className="hamburger-line"></div>
+    <div className="hamburger-line"></div>
+</button>
+
+        <div className={`mobile-menu ${mobileMenuVisible ? "visible" : ""}`}>
+          <ul className="collection">
+            {[
+              "About",
+              "Skills",
+              "Education",
+              "Projects",
+              "Experience",
+              "Contact",
+            ].map((item) => (
+              <li
+                key={item}
+                className={`collection-item ${
+                  activeItem === item ? "active" : ""
+                }`}
+                onClick={() => scrollToSection(item)}
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
         <div className="container">
           <div className="row">
             <div className="col s12 m4 l4 ">
               <div className="pinned">
                 <p className="flow-text">Hi, I'm</p>
                 <h3 className="header">Tarun Reddy</h3>
-
                 <ul className="collection">
                   {[
                     "About",
@@ -96,6 +129,7 @@ function App() {
             </div>
 
             <div className="col s12 m8 l8 right-section">
+            <h3 className="mobile-header">Hi, I'm Tarun Reddy</h3>
               <section id="About" className="custom-card">
                 <About />
               </section>
