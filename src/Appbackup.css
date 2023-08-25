@@ -1,0 +1,193 @@
+body{
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #10142c;
+}
+
+p {
+  color: #8892B0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.fixed-action-btn {
+  bottom: 25px;
+  right: 25px;
+}
+
+/* .collection {
+  background-color: inherit;
+  border: none;
+} */
+
+.collection .collection-item {
+  background-color: inherit !important;
+  color: #A8B2D1;
+  border: none !important;
+  transition: font-size 0.3s, color 0.3s;
+}
+
+.collection .collection-item:hover {
+  font-size: 35px;
+  color: white;
+}
+
+.collection .collection-item.active {
+  font-size: 35px;
+  color: white;
+}
+
+.right-section section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.custom-card {
+  background-color: transparent;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  border: 1px solid transparent;
+  min-height: 50px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.custom-card:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.header {
+  font-weight: bold;
+  color: white;
+}
+
+#About {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#About.custom-card {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+#About .about-desc {
+  font-weight: 600;
+}
+
+.pinned {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 70vh;
+}
+
+#Skills,
+#Education,
+#Projects,
+#Experience,
+#Contact {
+    margin-bottom: 30vh;
+}
+
+#Contact.custom-card {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+
+
+
+
+
+
+
+
+
+/* Default styles for larger screens */
+/* Default styles for larger screens */
+.pinned {
+  display: flex; /* Display the pinned menu on larger screens */
+}
+
+.mobile-menu-button, .mobile-menu {
+  display: none; /* Hide the mobile button and menu on larger screens */
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .pinned {
+    display: none; /* Hide the pinned menu on mobile */
+  }
+
+  .mobile-menu-button {
+    display: flex; /* Show the mobile button on mobile screens */
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    background-color: #59E2C5; /* Set the background color */
+    border: none;
+    border-radius: 5px;
+    width: 40px; /* Set a fixed width */
+    height: 30px; /* Set a fixed height */
+    padding: 5px;
+    cursor: pointer;
+    outline: none;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .hamburger-line {
+    width: 100%; /* Take the full width of the parent button */
+    height: 4px; /* Set a fixed height for the line */
+    background-color: black; /* Set the color of the line */
+    border-radius: 2px; /* Optional: to make the lines slightly rounded */
+  }
+
+  .mobile-menu.visible {
+    display: flex; /* Only display the mobile menu when it's set to visible */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-menu .collection {
+    width: 80%;
+    background-color: #10142c;
+    border-radius: 10px;
+  }
+}
+
+/* Default styles for larger screens */
+.mobile-header {
+  display: none; /* Hide the mobile header on larger screens */
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .mobile-header {
+    display: block; /* Show the mobile header on mobile screens */
+    text-align: center; /* Center the text */
+    color: white; /* Set the text color to white */
+    margin-top: 20px; /* Add some top margin for spacing */
+  }
+}

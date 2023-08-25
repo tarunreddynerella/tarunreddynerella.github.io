@@ -1,0 +1,32 @@
+.project-name{
+    padding-top: 15%;
+	color: #a8b2d1;
+    
+}
+.project-intro{
+    padding-top: 5%;
+	color: #a8b2d1;
+
+}
+.project-title{
+	color: #a8b2d1;
+
+}
+.PD-header {
+    height:80vh;
+
+}
+
+.project-img{
+    border: 2px solid whitesmoke;
+}
+
+.project-desc{
+    word-spacing: 5px;
+    line-height: 1.5;
+	color: #a8b2d1;
+
+}
+.NoSkillImage{
+	padding-top: 50%;
+}

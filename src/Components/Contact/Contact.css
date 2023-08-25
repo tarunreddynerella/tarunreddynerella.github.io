@@ -37,7 +37,6 @@
 
 #Contact .container {
     height: auto;
-    /* max-width: 800px; */
     width: 90%;
     margin: 0 auto;
     display: flex;
@@ -48,5 +47,4 @@
 
 .heading-contact {
     color : white;
-    
 }
