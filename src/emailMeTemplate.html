@@ -1,0 +1,57 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Open+Sans"
+			rel="stylesheet"
+			type="text/css" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Cabin"
+			rel="stylesheet"
+			type="text/css" />
+		<style>
+			body {
+				text-align: justify;
+				background-color: black;
+				color: white;
+			}
+			p {
+				padding-top: 1%;
+				padding-left: 2%;
+			}
+			.container {
+				border-radius: 20px;
+				margin-top: 2%;
+				margin-bottom: 5%;
+				margin-left: 5%;
+				margin-right: 5%;
+				padding-top: 1%;
+				padding-bottom: 1%;
+				background-color: #1e2124;
+				color: white;
+				text-align: justify;
+			}
+		</style>
+	</head>
+	<body>
+		<p>
+			Hi Anudeep,<br />
+			Greeting from Portfolio.<br />
+			You have a new Reachout from the contact Me<br />
+			Please Reach out to them as soon as possible.<br />
+		</p>
+		<p style="font-size: 18px; font-weight: bold">Message from Sender:</p>
+		<div class="container">
+			<div class="container">
+				{% if email %}
+				<p style="font-size: 18px"><strong>Email:</strong> {{email}}</p>
+				{% endif %}
+				<p style="font-size: 18px"><strong>Subject:</strong> {{subject}}</p>
+				<p style="font-size: 18px"><strong>Message:</strong> {{message}}</p>
+			</div>
+		</div>
+		<p style="font-size: 20px; font-weight: bold; color: red">
+			Note: This is an Automated Email. Do not write back. Reach out through:
+		</p>
+	</body>
+</html>
