@@ -39,3 +39,22 @@
   }
   
 
+  .tool-name {
+    font-size: 16px; 
+    margin-right: 8px;
+    align-items: center;
+    vertical-align: middle;
+    display: grid;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #CCD6F6;
+    text-align: justify;
+
+}
+
+.tool-icon {
+    width: 50px; 
+    height: 50px; 
+    margin-right: 8px;
+}

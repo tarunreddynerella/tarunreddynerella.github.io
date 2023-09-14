@@ -36,19 +36,12 @@ const ProjectsInfo = [
     "Advanced computer vision techniques were employed to augment the dataset, ensuring a comprehensive training process. Proper labeling and dataset preparation were paramount, ensuring the models were trained on high-quality data.",
     ],
    tools: [
-    // getSkillIcon("Deep Learning"),
-    // getSkillIcon("YOLOv7"),
-    getSkillIcon("Python"),
-    getSkillIcon("TensorFlow"),
-    // getSkillIcon("Performance Metrics")
+    "Python",
+    "TensorFlow",
+    "DeepLearning",
+    "YOLOV7"
   ],
-  //[
-  //   "Deep Learning Frameworks: YOLOv3, YOLOv5, ResNet",
-  //   "Data Augmentation: Image transformations, Gaussian blur, Salt and pepper noise, Median filters",
-  //   "Data Acquisition: Web scraping techniques, Manual curation",
-  //   "Performance Metrics: Training loss, Validation loss, Object loss, Boundary-box loss, Class loss",
-  //   "Optimization Techniques: Hyperparameter tuning, Model assembly, Backbone architectural adjustments",
-  // ],
+  
   },
 
 
@@ -80,12 +73,15 @@ const ProjectsInfo = [
     "The project was a collaborative effort, with each team member focusing on specific aspects. From researching data sources, handling real-time data streaming with Kafka, implementing NLP techniques for preprocessing, developing the machine learning pipeline, to designing the MongoDB storage solution and the front-end interface, every team member played a crucial role in the project's success.",
   ],
     tools: [
-    "Kafka: Used as a distributed streaming platform for real-time data streaming.",
-    "MongoDB: A NoSQL database chosen for storing the categorized news articles.",
-    "Natural Language Processing (NLP) Libraries: Python NLP libraries, including NLTK and spaCy, were used for preprocessing the news articles.",
-    "PySpark: Handled the big data processing and machine learning aspects of the project.",
-    "Machine Learning Libraries: Algorithms such as Logistic Regression, RandomForest, and Naive Bayes were implemented using the PySpark ML library.",
-    "Front-End Interface: Developed using web technologies, including HTML, CSS, and JavaScript, to display classified news articles and enable user interaction.",
+    "Apache Kafka",
+    "MongoDB",
+    "HTML5",
+    "css",
+    "JavaScript",
+    "NLP",
+    "PySpark",
+    "Machine Learning Libraries",
+
   ],
 
   },
@@ -110,9 +106,9 @@ const ProjectsInfo = [
     "Additionally, the system boasts an Optical Character Recognition (OCR) feature, which uses the Tesseract engine. This feature allows visually impaired users to read printed text, as the system captures text patterns and translates them into audio output. Whether it's reading a book, a signboard, or any printed material, the user receives clear and accurate verbal feedback.",
     ],
     tools:[
-    "YOLO (You Only Look Once) Algorithm",
-    "Tesseract OCR Engine",
-    "Python's Libraries",
+    "YOLO",
+    "Tesseract",
+    "Python",
   ],
 
   },
@@ -134,9 +130,8 @@ const ProjectsInfo = [
     tools:[
     "Flutter",
     "Firebase",
-    "Dart Language",
-    "Android Studio",
-    "Google Firebase Authentication Packages",
+    "dart",
+    "androidstudio",
     ],
   },
 
@@ -165,7 +160,8 @@ const ProjectsInfo = [
     ],
     tools:[
     "Django",
-    "HTML & CSS",
+    "HTML5",
+    "css",
     "PyCharm",
     ],
   },
@@ -183,11 +179,8 @@ const ProjectsInfo = [
     "The unpredictable trajectory of asteroids necessitates the use of computational power for accurate predictions and mitigation strategies. With vast amounts of data being collected every minute, traditional algorithms struggle to process it in real-time. Preliminary studies have shown promising results with machine learning algorithms. This research proposes an enhanced method using the XGBOOST algorithm combined with XGBclassifier based feature selection. The study also evaluates various machine learning techniques and feature selection algorithms to determine the most effective approach for predicting hazardous asteroids. The vastness of space and the unpredictable nature of asteroids make it a challenge to forecast potential asteroid collisions with Earth. With the continuous influx of data from automated solutions like NASA’s Goldstone Deep Space Communications and Spacewatch's Moving Object Detection Program, there's a pressing need for efficient computational methods to process this data in real-time. This project introduces a novel method that leverages the XGBOOST algorithm, enhanced with XGBclassifier based feature selection, to improve the accuracy of predicting hazardous asteroids.",
     ],
     tools: [
-    "XGBOOST Classifier: An optimized gradient boosting machine learning algorithm known for its efficiency and performance.",
-    "XGBClassifier for Feature Selection: A method derived from XGBOOST to select the most informative features from a dataset, enhancing the prediction accuracy.",
-    "Support Vector Machines (SVM): A supervised learning algorithm effective in high-dimensional spaces, used for classification.",
-    "Random Forest: An ensemble learning method suitable for high-dimensional data modeling, known for its accuracy in classification and regression tasks.",
-    "Mutual Information (MI): A statistical measure used for feature selection, indicating the dependency between two random variables.",
+    "Anaconda",
+    "ML Algortithms"
   ]
   },
 ];

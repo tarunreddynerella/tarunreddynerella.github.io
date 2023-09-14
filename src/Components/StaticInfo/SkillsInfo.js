@@ -89,6 +89,26 @@ const SkillsInfo = [
     src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
     alt: "HTML5",
   },
+  {
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg",
+    alt: "dart",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg",
+    alt: "androidstudio",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+    alt: "css",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pycharm/pycharm-original.svg",
+    alt: "PyCharm",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/anaconda/anaconda-original.svg",
+    alt: "Anaconda"
+  },
 ];
 
 export { SkillsInfo };

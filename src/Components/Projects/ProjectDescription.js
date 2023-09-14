@@ -39,7 +39,7 @@ const ProjectDescription = (props) => {
     return () => {
       instances.forEach((instance) => instance.destroy());
     };
-  }, [projectId]);  // Add projectId as a dependency to reinitialize ScrollSpy when projectId changes
+  }, [projectId]); // Add projectId as a dependency to reinitialize ScrollSpy when projectId changes
 
   const ProjectTableContents = [
     "ProjectTitle",
@@ -116,8 +116,13 @@ const ProjectDescription = (props) => {
                           className="tool-icon"
                         />
                       );
+                    } else {
+                      return (
+                        <span key={index} className="tool-name">
+                          {toolName}
+                        </span>
+                      );
                     }
-                    return null; // Return null if the skill is not found in SkillsInfo
                   })}
                 </div>
               </div>
