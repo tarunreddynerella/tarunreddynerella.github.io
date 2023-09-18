@@ -11,7 +11,7 @@ const ProjectsInfo = [
     date: "APRIL 2023",
     description:
       "Developed a system using YOLOv7 and a two-layer neural network for real-time road sign detection and recognition with high accuracy.",
-    image: "/Files/traffic_sign.jpg", // Replace with your image path
+    image: "/Files/traffic_sign.jpg",
     overview: [
     "In the rapidly evolving landscape of autonomous driving and advanced driver assistance systems, the ability to accurately detect and recognize road signs in real-time is paramount. This project aimed to develop a state-of-the-art system capable of detecting road signs and subsequently categorizing them into distinct types, all in real-time.",
     
@@ -32,7 +32,6 @@ const ProjectsInfo = [
     "Data Collection & Preprocessing:",
     
     "The LISA dataset served as the foundation for the first layer of the model. The entire process of data acquisition and preprocessing was managed to ensure its suitability for training.",
-    "For the second dataset, a combination of web scraping and manual curation was employed. Images were sourced from diverse platforms, including the http://www.trafficsign.us/ website.",
     "Advanced computer vision techniques were employed to augment the dataset, ensuring a comprehensive training process. Proper labeling and dataset preparation were paramount, ensuring the models were trained on high-quality data.",
     ],
    tools: [
@@ -52,7 +51,7 @@ const ProjectsInfo = [
     date: "FEB 2023",
     description:
       "Real-time news classification system to classify articles into different categories using NLP and ML algorithms. Utilized Kafka to consume, classify, and store news articles in real-time.",
-    image: "/Files/News_Classification.png", // Replace with your image path
+    image: "/Files/News_Classification.png",
     overview: [
     "The project aimed to develop a real-time news classification system capable of categorizing news articles from various sources into distinct categories such as politics, sports, entertainment, and more. With the rapid surge of online news content, there was a pressing need for an efficient system that could handle the classification task in real-time. The solution leveraged Kafka for real-time data streaming, ensuring the efficient ingestion and processing of news articles. Machine learning and natural language processing algorithms were employed to classify the articles based on their content. The classified articles were then stored in appropriate categories for easy retrieval and display.",
 
@@ -65,12 +64,8 @@ const ProjectsInfo = [
     "Design a user interface to display classified news articles in real-time.",
     "Results:",
     "The system was capable of classifying news articles into different categories in real-time, offering an effective and scalable solution for news classification. The Logistic Regression model demonstrated the best overall performance in terms of accuracy and runtime. The project achieved a scalable and efficient real-time news classification system capable of handling large volumes of data.",
+    "The project provided insights into the importance of data preprocessing, model selection, and evaluation, MLOps practices, and the challenges of handling real-time data.",
     
-    "Lessons Learned:",
-    "The project provided insights into the importance of data preprocessing, model selection, and evaluation, MLOps practices, and the challenges of handling real-time data. The team also learned the significance of selecting the right tools and techniques to address specific challenges.",
-    
-    "Team Contributions:",
-    "The project was a collaborative effort, with each team member focusing on specific aspects. From researching data sources, handling real-time data streaming with Kafka, implementing NLP techniques for preprocessing, developing the machine learning pipeline, to designing the MongoDB storage solution and the front-end interface, every team member played a crucial role in the project's success.",
   ],
     tools: [
     "Apache Kafka",
@@ -80,7 +75,7 @@ const ProjectsInfo = [
     "JavaScript",
     "NLP",
     "PySpark",
-    "Machine Learning Libraries",
+    "ML Libraries",
 
   ],
 
@@ -95,10 +90,8 @@ const ProjectsInfo = [
     date: "DEC 2022",
     description:
       "AI-driven solution utilizing YOLOv5, empowers visually impaired individuals with enhanced mobility and safety by providing real-time object detection, recognition, and audio guidance for obstacle-free navigation.",
-    image: "/Files/yolo_edit.jpg", // Replace with your image path
+    image: "/Files/yolo_edit.jpg",
     overview: [
-    "The AI-Powered Environmental Adaptive Assistant is a groundbreaking initiative aimed at enhancing the quality of life for visually impaired individuals. Recognizing the challenges faced by the blind community in navigating their surroundings, a team from the University of Colorado Denver's Department of Computer Science and Engineering embarked on a mission to harness the power of artificial intelligence to bridge this gap.",
-
     "The core objective of this project was to transform the visual world into an auditory one, enabling blind individuals to see through sound. By leveraging real-time object detection and recognition, the system provides immediate audio feedback about the environment, ensuring safer and more confident mobility for its users.",
     
     "The project's foundation is built upon the YOLO (You Only Look Once) algorithm, known for its speed and accuracy in object detection. The system captures video through a portable camera device, which then streams to a server equipped with the YOLO model for real-time image recognition. Once objects are detected, their spatial positions are translated into audio cues, guiding the user about potential obstacles or points of interest.",

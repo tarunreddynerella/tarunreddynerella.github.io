@@ -58,3 +58,16 @@
     height: 50px; 
     margin-right: 8px;
 }
+
+.skills {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping to the next line */
+    justify-content: space-between; /* Distribute items evenly */
+    align-items: center; /* Center items vertically */
+}
+
+.tool-icon, .tool-name {
+    flex: 1 1 calc(10% - 10px); /* Take up one-third of the container width, minus some margin for spacing */
+    margin: 5px; /* Add some margin for spacing */
+    text-align: center; /* Center text for .tool-name */
+}
