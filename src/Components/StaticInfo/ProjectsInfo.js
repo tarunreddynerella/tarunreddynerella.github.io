@@ -7,6 +7,68 @@ const getSkillIcon = (skillName) => {
 const ProjectsInfo = [
   {
     title:
+      "Waste Segregation System",
+    date: "DEC 2023",
+    description:
+      "A machine learning model utilizing Convolutional Neural Networks to classify waste into recyclables, organics, hazardous, and trash categories, streamlining waste management processes",
+    image: "/Files/wastesegregation.png",
+    overview: [
+      "The project focused on developing an automated waste categorization system utilizing machine learning to improve waste management efficiency. By classifying waste into four distinct categories: Recyclables, Compost, Hazardous, and Trash, the system aims to enhance recycling and disposal operations significantly.",
+
+
+      "Employing a Convolutional Neural Network (CNN), the project leveraged a comprehensive dataset collected from various sources to ensure diverse representation of waste materials. The goal was to utilize advanced image recognition and deep learning techniques to create a scalable and reliable solution for waste management facilities.",
+      
+      
+      "Detailed Breakdown:",
+      
+      "Data Collection & Preprocessing: Utilized the TrashNet and a Kaggle dataset, focusing on extensive data preprocessing including image resizing, normalization, and augmentation to ensure the dataset's robustness.",
+      
+      "CNN Model Training: The model was trained with an emphasis on extracting and learning features from images of different types of waste, achieving high accuracy in categorization.",
+      
+      "Model Evaluation: Utilized accuracy, precision, recall, F1-score, and confusion matrix for assessment, achieving notable precision and reliability in waste categorization.",
+
+    ],
+   tools: [
+    "Python",
+    "TensorFlow",
+    "Keras",
+    "OpenCV"
+  ],
+  
+  },
+
+
+
+
+  {
+    title:
+      "Maze Solver Using Computer Vision",
+    date: "NOV 2023",
+    description:
+      "A system designed to autonomously process and solve 2D mazes by employing computer vision techniques and edge detection for enhanced robotic pathfinding",
+    image: "/Files/mazesolver.png",
+    overview: [
+      "This project introduces a novel approach to solving two-dimensional mazes using computer vision, marking a significant advancement in robotics and human-computer interaction. By leveraging sophisticated image processing techniques and machine learning, the system efficiently interprets maze structures from images and computes effective solution paths, bypassing traditional graph search algorithms for a vision-centric resolution.",
+
+
+      "The implementation involves preprocessing maze images for clarity, applying edge detection to outline the maze, and then using the Breadth-First Search (BFS) algorithm to navigate through the maze efficiently. This process highlights the project's innovative use of computer vision in pathfinding, demonstrating its potential in autonomous navigation and indoor route-finding technologies.",
+      
+
+    ],
+   tools: [
+    "Python",
+    "Numpy",
+    "Matplotlib",
+    "OpenCV"
+  ],
+  
+  },
+  
+
+
+  
+  {
+    title:
       "Real-Time Road Sign Detection, Recognition, and Driver Guidance System",
     date: "APRIL 2023",
     description:

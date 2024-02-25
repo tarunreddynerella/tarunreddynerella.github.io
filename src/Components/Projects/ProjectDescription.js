@@ -73,7 +73,7 @@ const ProjectDescription = (props) => {
               <h5 className="project-intro">{projectDetails.description}</h5>
             </div>
             <div className="profile-switch">
-              <a className="btn green" href={projectDetails.link}>
+              <a className="btn green" href={projectDetails.link} target="_blank" rel="noopener noreferrer">
                 Live
               </a>
             </div>
