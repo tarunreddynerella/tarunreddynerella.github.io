@@ -11,6 +11,8 @@ import CustomCursor from "./Components/CustomCursor/CustomCursor";
 import ScrollingMenu from "./Components/ScrollingMenu/ScrollingMenu";
 import ProjectDescription from "./Components/Projects/ProjectDescription";
 import M from "materialize-css";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 
 function App() {
   const homeTableContents = [

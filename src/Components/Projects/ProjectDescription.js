@@ -73,9 +73,16 @@ const ProjectDescription = (props) => {
               <h5 className="project-intro">{projectDetails.description}</h5>
             </div>
             <div className="profile-switch">
-              <a className="btn green" href={projectDetails.link} target="_blank" rel="noopener noreferrer">
-                Live
-              </a>
+              {projectDetails.livelink && (
+                <a
+                  className="btn green"
+                  href={projectDetails.livelink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Live
+                </a>
+              )}
             </div>
           </section>
 
@@ -135,7 +142,12 @@ const ProjectDescription = (props) => {
               <div className="col s12 m4 left">
                 {projectDetails.link && (
                   <div className="profile-switch">
-                    <a className="btn-large green" href={projectDetails.link}>
+                    <a
+                      className="btn-large green"
+                      href={projectDetails.livelink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Live
                     </a>
                   </div>
