@@ -40,7 +40,7 @@ const ProjectsInfo = [
       "The implementation involves preprocessing maze images for clarity, applying edge detection to outline the maze, and then using the Breadth-First Search (BFS) algorithm to navigate through the maze efficiently. This process highlights the project's innovative use of computer vision in pathfinding, demonstrating its potential in autonomous navigation and indoor route-finding technologies.",
     ],
     tools: ["Python", "Numpy", "Matplotlib", "OpenCV"],
-    livelink: null,
+    livelink: "https://tarunreddynerella.github.io/MazeSolver",
   },
 
   {
