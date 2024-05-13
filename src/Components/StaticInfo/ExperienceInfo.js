@@ -1,21 +1,21 @@
 const ExperiencesInfo = [
   {
-    title: "Student Ambassador | University of Colorado Denver",
-    date: "JAN 2023 - PRESENT",
+    title: "Graduate Student Assistant | University of Colorado Denver",
+    date: "JAN 2023 - MAY 2024",
     description:
-      "Representing the University and assisting with student outreach, events, and activities.",
+      "Research Assistance: Assisted in a research project focusing on AI/ML applications in educational technologies. \nStudent Mentorship: Provided support to students in enhancing their Python programming abilities through detailed code reviews and dedicated debugging assistance. \nStudent Engagement: Represented the university and coordinated student outreach, managing university events to foster active engagement.",
   },
   {
-    title: "Intern | Rinex, Entrepreneurship Cell IIT Kharagpur",
-    date: "JULY 2021 - SEPT 2021",
+    title: "Data Engineer | 9th Networks INC",
+    date: "AUG 2020 - AUG 2022",
     description:
-      "Worked on a variety of machine learning projects, exploring and evaluating the performance of different algorithms across diverse fields and applications.",
+      "Data Lake Enhancement: Worked on the enhancement and sustenance of data lakes and data pipelines for better insight into telemetry data. \nData Integration: Managed file sizing and structured semi-structured data loading into Snowflake using Snow-Pipe. \nScripting and Development: Developed scripts in Python and Scala for data analysis and quality testing. Managed complete ETL lifecycle including modeling, ingestion, transformations, and aggregations.",
   },
   {
     title: "Intern | IIIT Hyderabad",
-    date: "AUG 2020 - SEP 2020",
+    date: "JUNE 2020 - AUG 2020",
     description:
-      "Utilized HTML, CSS, JAVASCRIPT, JSON, REACT and PHP to create responsive and interactive websites.",
+      "Web Application Development: Developed and deployed a large-scale React/Node.js application for enhanced scalability. \nData Visualization: Implemented D3.js for advanced data visualization, improving user data interaction. \nPerformance Optimization: Optimized code and server configurations, significantly improving application load times. Addressed scalability challenges by implementing efficient coding practices and server adjustments.",
   },
 ];
 export { ExperiencesInfo };

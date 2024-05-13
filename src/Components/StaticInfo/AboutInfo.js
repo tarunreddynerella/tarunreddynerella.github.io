@@ -2,12 +2,12 @@ const AboutInfo = [
   {
     label: "Introduction",
     description:
-      "I'm a Computer Science grad student from the University of Colorado Denver. My journey in tech has led me through the intricate pathways of Big Data, AI, and Web Development. With a foundation fortified by hands-on projects and internships, I've cultivated a blend of theoretical knowledge and practical application. I've tackled challenges from developing AI solutions to crafting web applications, always with an eye for innovation.",
+      "I am a dedicated Computer Science graduate from the University of Colorado Denver, with a profound passion for AI/ML, data science, and software development. My journey in tech includes extensive hands-on experience in Python, coupled with a solid foundation in AI, ML, and automation. With significant software development expertise, I've delivered numerous full-scale applications, showcasing strong coding and architectural skills. Throughout my career, I've led the development of high-impact projects, from computer vision and deep learning solutions to full-stack web applications. My proficiency in cloud technologies, including Azure, AWS, and Databricks, and my ability to set up robust CI/CD pipelines, have consistently optimized deployment processes and enhanced infrastructure resilience. My academic background includes a Master’s in Computer Science, complemented by certifications in Azure, Databricks, and AWS. I’ve also actively contributed to open-source projects and tech communities, keeping abreast of the latest industry trends and technologies.",
   },
   {
     label: "Goal",
     description:
-      "As I gear up to transition from academia to the professional world, I'm actively seeking full-time roles where. I'm eager to bring my skills to a dynamic team and make a tangible impact in the tech industry. Let's connect and see how we can push boundaries together!",
+      "As I transition from academia to the professional world, I am eager to bring my skills to a dynamic team and contribute to innovative, cutting-edge solutions. Let's connect and explore how we can push the boundaries of technology together!",
   },
 ];
 

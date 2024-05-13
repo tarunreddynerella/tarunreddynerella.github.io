@@ -3,7 +3,7 @@ const EducationInfo = [
   {
     title: "Master of Science | Computer Science",
     institution: "University of Colorado Denver | Denver",
-    date: "AUG 2022 - PRESENT",
+    date: "AUG 2022 - MAY 2024",
     description:
       "Course Works: Big Data Systems, Artificial Intelligence, Deep Learning, Algorithms",
   },
