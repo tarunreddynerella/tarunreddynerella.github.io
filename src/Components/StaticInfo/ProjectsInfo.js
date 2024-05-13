@@ -25,7 +25,7 @@ const ProjectsInfo = [
       "Model Evaluation: Utilized accuracy, precision, recall, F1-score, and confusion matrix for assessment, achieving notable precision and reliability in waste categorization.",
     ],
     tools: ["Python", "TensorFlow", "Keras", "OpenCV"],
-    livelink: null,
+    livelink: "https://github.com/tarunreddynerella/WasteClassificationML",
   },
 
   {
@@ -73,7 +73,7 @@ const ProjectsInfo = [
       "Advanced computer vision techniques were employed to augment the dataset, ensuring a comprehensive training process. Proper labeling and dataset preparation were paramount, ensuring the models were trained on high-quality data.",
     ],
     tools: ["Python", "TensorFlow", "DeepLearning", "YOLOV7"],
-    livelink: null,
+    livelink: "https://github.com/tarunreddynerella/RoadSignDetectionProject",
   },
 
   {
@@ -106,7 +106,7 @@ const ProjectsInfo = [
       "PySpark",
       "ML Libraries",
     ],
-    livelink: null,
+    livelink: "https://github.com/tarunreddynerella/NewsClassifier.git",
   },
 
   {
@@ -124,7 +124,7 @@ const ProjectsInfo = [
       "Additionally, the system boasts an Optical Character Recognition (OCR) feature, which uses the Tesseract engine. This feature allows visually impaired users to read printed text, as the system captures text patterns and translates them into audio output. Whether it's reading a book, a signboard, or any printed material, the user receives clear and accurate verbal feedback.",
     ],
     tools: ["YOLO", "Tesseract", "Python"],
-    livelink: null,
+    livelink: "https://github.com/tarunreddynerella/AssistantfortheVisuallyImpaired.git",
   },
 
   {
@@ -139,7 +139,7 @@ const ProjectsInfo = [
       "The application's backend is powered by Firebase, a Google program that provides a real-time database, allowing for instantaneous data access and offline data availability. Firebase's built-in APIs have been leveraged to expedite functionalities that would traditionally take longer in conventional database systems. The application also incorporates Firebase's authentication services, ensuring secure user registration and login processes.",
     ],
     tools: ["Flutter", "Firebase", "dart", "androidstudio"],
-    livelink: null,
+    livelink: "https://github.com/tarunreddynerella/Ecommerce-Application.git",
   },
 
   {
@@ -163,7 +163,7 @@ const ProjectsInfo = [
       "The software aims to eliminate manual errors, enhance patient satisfaction by providing quality healthcare, and improve the overall operational efficiency of the polyclinic. With its deployment, the polyclinic can expect faster information processing, reduced bookkeeping efforts, and increased accuracy.",
     ],
     tools: ["Django", "HTML5", "css", "PyCharm"],
-    livelink: null,
+    livelink: "https://github.com/tarunreddynerella/SoftwareForPolyclinic.git",
   },
 
   {
@@ -177,7 +177,7 @@ const ProjectsInfo = [
       "The unpredictable trajectory of asteroids necessitates the use of computational power for accurate predictions and mitigation strategies. With vast amounts of data being collected every minute, traditional algorithms struggle to process it in real-time. Preliminary studies have shown promising results with machine learning algorithms. This research proposes an enhanced method using the XGBOOST algorithm combined with XGBclassifier based feature selection. The study also evaluates various machine learning techniques and feature selection algorithms to determine the most effective approach for predicting hazardous asteroids. The vastness of space and the unpredictable nature of asteroids make it a challenge to forecast potential asteroid collisions with Earth. With the continuous influx of data from automated solutions like NASA’s Goldstone Deep Space Communications and Spacewatch's Moving Object Detection Program, there's a pressing need for efficient computational methods to process this data in real-time. This project introduces a novel method that leverages the XGBOOST algorithm, enhanced with XGBclassifier based feature selection, to improve the accuracy of predicting hazardous asteroids.",
     ],
     tools: ["Anaconda", "ML Algortithms"],
-    livelink: null,
+    livelink: "https://www.irjet.net/archives/V8/i9/IRJET-V8I9244.pdf",
   },
 ];
 
