@@ -1,128 +1,212 @@
-import React, { useState, useEffect } from "react";
+import React, { Suspense, useEffect, useMemo, useState } from "react";
 import "./App.css";
-import About from "./Components/About/About";
-import Skills from "./Components/Skills/Skills";
-import Projects from "./Components/Projects/Projects";
-import Experience from "./Components/Experience/Experience";
-import Education from "./Components/Education/Education";
-import Contact from "./Components/Contact/Contact";
-import Navbar from "./Components/Navbar/Navbar";
-import CustomCursor from "./Components/CustomCursor/CustomCursor";
-import ScrollingMenu from "./Components/ScrollingMenu/ScrollingMenu";
-import ProjectDescription from "./Components/Projects/ProjectDescription";
-import M from "materialize-css";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import V2Portfolio from "./Components/V2Portfolio/V2Portfolio";
 
+const V1Portfolio = React.lazy(() =>
+  import("./Components/V1Portfolio/V1Portfolio")
+);
+
+const normalizeVersion = (value) => (value === "v1" ? "v1" : "v2");
+const normalizeTheme = (value) => (value === "day" ? "day" : "night");
+const normalizeMode = (value) => (value === "resume" ? "resume" : "portfolio");
+
+const polarToCartesian = (radius, angle) => {
+  const radians = (angle * Math.PI) / 180;
+  return {
+    x: 60 + radius * Math.cos(radians),
+    y: 60 + radius * Math.sin(radians),
+  };
+};
+
+const annularSlicePath = (startAngle, endAngle) => {
+  const outerRadius = 54;
+  const innerRadius = 24;
+  const outerStart = polarToCartesian(outerRadius, startAngle);
+  const outerEnd = polarToCartesian(outerRadius, endAngle);
+  const innerEnd = polarToCartesian(innerRadius, endAngle);
+  const innerStart = polarToCartesian(innerRadius, startAngle);
+  const largeArcFlag = endAngle - startAngle > 180 ? 1 : 0;
+
+  return [
+    `M ${outerStart.x} ${outerStart.y}`,
+    `A ${outerRadius} ${outerRadius} 0 ${largeArcFlag} 1 ${outerEnd.x} ${outerEnd.y}`,
+    `L ${innerEnd.x} ${innerEnd.y}`,
+    `A ${innerRadius} ${innerRadius} 0 ${largeArcFlag} 0 ${innerStart.x} ${innerStart.y}`,
+    "Z",
+  ].join(" ");
+};
+
+const labelPoint = (angle) => polarToCartesian(40, angle);
+
+function DialSegment({
+  className,
+  label,
+  actionLabel,
+  onActivate,
+  start,
+  end,
+  labelAngle,
+}) {
+  const point = labelPoint(labelAngle);
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      onActivate();
+    }
+  };
+
+  return (
+    <g
+      className={`dial-segment ${className}`}
+      role="button"
+      tabIndex="0"
+      aria-label={actionLabel}
+      onClick={onActivate}
+      onKeyDown={handleKeyDown}
+    >
+      <path className="dial-wedge" d={annularSlicePath(start, end)} />
+      <text className="dial-text" x={point.x} y={point.y}>
+        {label}
+      </text>
+    </g>
+  );
+}
+
+function DisplayControls({
+  showV1,
+  theme,
+  mode,
+  onVersionToggle,
+  onThemeToggle,
+  onModeToggle,
+}) {
+  const effectiveMode = showV1 ? "portfolio" : mode;
+  const versionAction = showV1 ? "Open V2" : "Open V1";
+  const themeAction = theme === "day" ? "Switch to night" : "Switch to day";
+  const modeAction =
+    effectiveMode === "portfolio" ? "Open resume mode" : "Open portfolio mode";
+
+  return (
+    <aside className="mode-dial" aria-label="Portfolio display controls">
+      <svg
+        className="dial-svg"
+        viewBox="0 0 120 120"
+        aria-hidden="false"
+        focusable="false"
+      >
+        <DialSegment
+          className="dial-segment-version"
+          label={showV1 ? "V1" : "V2"}
+          actionLabel={versionAction}
+          onActivate={onVersionToggle}
+          start={-150}
+          end={-30}
+          labelAngle={-90}
+        />
+        <DialSegment
+          className={`dial-segment-theme dial-segment-theme-${theme}`}
+          label={theme === "day" ? "Day" : "Night"}
+          actionLabel={themeAction}
+          onActivate={onThemeToggle}
+          start={90}
+          end={210}
+          labelAngle={150}
+        />
+        <DialSegment
+          className={`dial-segment-mode dial-segment-mode-${effectiveMode}`}
+          label={effectiveMode === "portfolio" ? "Site" : "PDF"}
+          actionLabel={modeAction}
+          onActivate={onModeToggle}
+          start={-30}
+          end={90}
+          labelAngle={30}
+        />
+        <circle className="dial-core" cx="60" cy="60" r="23" />
+      </svg>
+    </aside>
+  );
+}
+
+function readInitialState() {
+  const params = new URLSearchParams(window.location.search);
+
+  return {
+    version: normalizeVersion(params.get("version")),
+    theme: normalizeTheme(params.get("theme")),
+    mode: normalizeMode(params.get("mode")),
+  };
+}
 
 function App() {
-  const homeTableContents = [
-    "About",
-    "Skills",
-    "Education",
-    "Projects",
-    "Experience",
-    "Contact",
-  ];
-
-  const [projectId, SetProjectId] = useState(null);
+  const initialState = useMemo(readInitialState, []);
+  const [version, setVersion] = useState(initialState.version);
+  const [theme, setTheme] = useState(initialState.theme);
+  const [mode, setMode] = useState(initialState.mode);
 
   useEffect(() => {
-    const scrollspyElements = document.querySelectorAll(".scrollspy");
-    const instances = M.ScrollSpy.init(scrollspyElements, { scrollOffset: 64 });
+    document.body.classList.toggle("v1-body", version === "v1");
+    document.body.classList.toggle("v2-body", version === "v2");
+    document.body.classList.toggle("v2-night-body", version === "v2" && theme === "night");
+    document.body.classList.toggle("v2-day-body", version === "v2" && theme === "day");
+  }, [version, theme]);
 
-    // Return a cleanup function to destroy ScrollSpy instances
-    return () => {
-      instances.forEach((instance) => instance.destroy());
-    };
-  }, [projectId]);  // Add projectId as a dependency to the useEffect hook
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    params.set("version", version);
+    params.set("theme", theme);
+
+    if (version === "v2" && mode === "resume") {
+      params.set("mode", "resume");
+    } else {
+      params.delete("mode");
+    }
+
+    const query = params.toString();
+    const nextUrl = `${window.location.pathname}${query ? `?${query}` : ""}`;
+    window.history.replaceState(null, "", nextUrl);
+  }, [version, theme, mode]);
+
+  const showV1 = version === "v1";
+
+  const handleVersionToggle = () => {
+    setVersion((currentVersion) => (currentVersion === "v1" ? "v2" : "v1"));
+    setMode("portfolio");
+  };
+
+  const handleModeToggle = () => {
+    setVersion("v2");
+    setMode((currentMode) =>
+      currentMode === "portfolio" ? "resume" : "portfolio"
+    );
+  };
 
   return (
     <>
-      <CustomCursor></CustomCursor>
-      <div className="App">
-        <Navbar></Navbar>
+      {showV1 ? (
+        <Suspense
+          fallback={
+            <main className="app-loading" aria-live="polite">
+              Loading V1...
+            </main>
+          }
+        >
+          <V1Portfolio />
+        </Suspense>
+      ) : (
+        <V2Portfolio theme={theme} mode={mode} setMode={setMode} />
+      )}
 
-        <div className="row">
-          {projectId && (
-            <ProjectDescription
-              projectId={projectId}
-              SetProjectId={SetProjectId}
-            />
-          )}
-          <div className="fixed-action-btn">
-            <button
-              className="btn-floating btn-large green"
-              onClick={() => window.scrollTo(0, 0)}
-            >
-              <i className="large material-icons">arrow_upward</i>
-            </button>
-          </div>
-          {!projectId && (
-            <>
-              <ul className="sidenav" id="mobile-nav">
-                <li>&nbsp;</li>
-                <li>&nbsp;</li>
-
-                {homeTableContents.map((content, index) => (
-                  <li key={index}>
-                    <a href={`#${content}`}>{content}</a>
-                  </li>
-                ))}
-              </ul>
-              <div className="col s12 m4 l4 left-section">
-                <ScrollingMenu
-                  tableContents={homeTableContents}
-                ></ScrollingMenu>
-              </div>
-              <div className="col s12 m8 l8 right-section ">
-                <div className="container">
-                  <section
-                    id="About"
-                    className="about custom-card section scrollspy"
-                  >
-                    <About></About>
-                  </section>
-
-                  <section
-                    id="Skills"
-                    className="custom-card section scrollspy"
-                  >
-                    <Skills></Skills>
-                  </section>
-
-                  <section
-                    id="Education"
-                    className="custom-card section scrollspy"
-                  >
-                    <Education></Education>
-                  </section>
-
-                  <section
-                    id="Projects"
-                    className="custom-card section scrollspy"
-                  >
-                    <Projects SetProjectId={SetProjectId}></Projects>
-                  </section>
-
-                  <section
-                    id="Experience"
-                    className="custom-card section scrollspy"
-                  >
-                    <Experience></Experience>
-                  </section>
-
-                  <section
-                    id="Contact"
-                    className="custom-card section scrollspy"
-                  >
-                    <Contact></Contact>
-                  </section>
-                </div>
-              </div>
-            </>
-          )}
-        </div>
-      </div>
+      <DisplayControls
+        showV1={showV1}
+        theme={theme}
+        mode={mode}
+        onVersionToggle={handleVersionToggle}
+        onThemeToggle={() =>
+          setTheme((currentTheme) => (currentTheme === "day" ? "night" : "day"))
+        }
+        onModeToggle={handleModeToggle}
+      />
     </>
   );
 }

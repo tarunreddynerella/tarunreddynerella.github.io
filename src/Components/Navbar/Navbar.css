@@ -41,7 +41,7 @@
         z-index: 1000;
     }
 
-    body {
+    body.v1-body {
         padding-top: 50px; 
     }
 }

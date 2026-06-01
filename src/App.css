@@ -1,112 +1,277 @@
 body {
-	font-family: "Source Sans Pro", sans-serif;
-	background-color: #10142c;
-}
-
-p {
-	/* color: #8892b0; */
-	color: #a8b2d1;
+  margin: 0;
+  font-family: Inter, "Source Sans Pro", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #fbf4e6;
 }
 
 html {
-	scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
-.left-section {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	height: 70vh;
+.app-loading {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #10142c;
+  color: #a8b2d1;
+  font-weight: 700;
 }
 
-.left-section h5 {
-	color: #8892b0;
-}
-.header {
-	font-weight: bold;
-	color: white;
-	text-align: justify;
+body.v1-body {
+  font-family: "Source Sans Pro", sans-serif;
+  background-color: #10142c;
 }
 
-.table-of-contents {
-	text-align: justify;
+body.v2-body {
+  background: #fbf4e6;
 }
 
-.table-of-contents h6 {
-	color: #a8b2d1;
-	transition: font-size 0.3s, color 0.3s;
+body.v2-night-body {
+  background: #111311;
 }
 
-.table-of-contents h6:hover,
-.table-of-contents a:hover {
-	font-size: 35px;
-	color: white;
-	border-left: none !important;
+.mode-dial {
+  --dial-ink: #22201c;
+  --dial-muted: #665f54;
+  --dial-line: rgba(90, 77, 55, 0.24);
+  --dial-core: rgba(255, 250, 240, 0.58);
+  --dial-version: #8aa08c;
+  --dial-theme: #e7b95f;
+  --dial-mode: #346f67;
+  --dial-size: 108px;
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 3000;
+  width: var(--dial-size);
+  height: var(--dial-size);
+  opacity: 0.58;
+  filter: drop-shadow(0 12px 24px rgba(56, 42, 20, 0.12));
+  transform-origin: center;
+  transition:
+    filter 0.22s ease,
+    opacity 0.22s ease;
 }
 
-.table-of-contents .active h6,
-.table-of-contents a.active {
-	font-size: 35px !important;
-	color: white;
-	border-left: none !important;
+.mode-dial:hover,
+.mode-dial:focus-within {
+  opacity: 0.98;
+  filter: drop-shadow(0 20px 38px rgba(56, 42, 20, 0.24));
 }
 
-.right-section section {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	padding: 20px;
+body.v2-night-body .mode-dial,
+body.v1-body .mode-dial {
+  --dial-ink: #f4ead6;
+  --dial-muted: #beb4a1;
+  --dial-line: rgba(255, 244, 220, 0.16);
+  --dial-core: rgba(22, 24, 21, 0.68);
+  --dial-version: #708d77;
+  --dial-theme: #dca84d;
+  --dial-mode: #5fb59b;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.32));
 }
 
-.custom-card {
-	background-color: transparent;
-	transition: background-color 0.3s, box-shadow 0.3s;
-	border: 1px solid transparent;
-	min-height: 50px;
-	border-radius: 10px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	overflow: hidden;
-	min-width: 100%;
+body.v2-night-body .mode-dial:hover,
+body.v2-night-body .mode-dial:focus-within,
+body.v1-body .mode-dial:hover,
+body.v1-body .mode-dial:focus-within {
+  filter: drop-shadow(0 20px 42px rgba(0, 0, 0, 0.48));
 }
 
-.custom-card:hover {
-	background-color: rgba(255, 255, 255, 0.05);
-	border: 1px solid rgba(255, 255, 255, 0.1);
-	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+body.v1-body .mode-dial {
+  --dial-core: rgba(16, 20, 44, 0.68);
 }
 
-.about {
-	min-height: 80vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+.dial-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
 }
 
-.about.custom-card {
-	background-color: transparent;
-	border: none;
-	box-shadow: none;
+.dial-segment {
+  cursor: pointer;
+  outline: none;
+  transform-box: view-box;
+  transform-origin: 60px 60px;
+  transition: transform 0.18s ease;
 }
 
-#Skills,
-#Education,
-#Projects,
-#Experience,
-#Contact {
-	margin-bottom: 30vh;
+.dial-segment:hover,
+.dial-segment:focus-visible {
+  transform: scale(1.08);
 }
 
-#Contact.custom-card {
-	background-color: transparent;
-	border: none;
-	box-shadow: none;
+.dial-wedge {
+  stroke: var(--dial-line);
+  stroke-width: 1.25;
+  fill-opacity: 0.18;
+  transition:
+    fill-opacity 0.18s ease,
+    stroke-opacity 0.18s ease;
 }
 
+.dial-segment:hover .dial-wedge,
+.dial-segment:focus-visible .dial-wedge {
+  fill-opacity: 0.92;
+  stroke-opacity: 1;
+}
 
-.fixed-action-btn {
-    position: fixed;
-    bottom: 15px;
-    right: 15px;
-    z-index: 1000; /* Ensure it's on top of other elements */
+.dial-segment-version .dial-wedge {
+  fill: var(--dial-version);
+}
+
+.dial-segment-theme .dial-wedge {
+  fill: var(--dial-theme);
+}
+
+.dial-segment-mode .dial-wedge {
+  fill: var(--dial-mode);
+}
+
+.dial-text,
+.dial-core-title {
+  pointer-events: none;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  letter-spacing: 0;
+}
+
+.dial-text {
+  fill: var(--dial-muted);
+  font-size: 10px;
+  font-weight: 900;
+  opacity: 0.78;
+  transition:
+    fill 0.18s ease,
+    opacity 0.18s ease;
+}
+
+.dial-segment:hover .dial-text,
+.dial-segment:focus-visible .dial-text {
+  fill: var(--dial-ink);
+  opacity: 1;
+}
+
+.dial-core {
+  fill: var(--dial-core);
+  stroke: var(--dial-line);
+  stroke-width: 1.2;
+  backdrop-filter: blur(14px);
+}
+
+.v1-page p {
+  color: #a8b2d1;
+}
+
+.v1-page .left-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 70vh;
+}
+
+.v1-page .left-section h5 {
+  color: #8892b0;
+}
+
+.v1-page .header {
+  font-weight: bold;
+  color: white;
+  text-align: justify;
+}
+
+.v1-page .table-of-contents {
+  text-align: justify;
+}
+
+.v1-page .table-of-contents h6 {
+  color: #a8b2d1;
+  transition: font-size 0.3s, color 0.3s;
+}
+
+.v1-page .table-of-contents h6:hover,
+.v1-page .table-of-contents a:hover {
+  font-size: 35px;
+  color: white;
+  border-left: none !important;
+}
+
+.v1-page .table-of-contents .active h6,
+.v1-page .table-of-contents a.active {
+  font-size: 35px !important;
+  color: white;
+  border-left: none !important;
+}
+
+.v1-page .right-section section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.v1-page .custom-card {
+  background-color: transparent;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  border: 1px solid transparent;
+  min-height: 50px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  min-width: 100%;
+}
+
+.v1-page .custom-card:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.v1-page .about {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.v1-page .about.custom-card {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.v1-page #Skills,
+.v1-page #Education,
+.v1-page #Projects,
+.v1-page #Experience,
+.v1-page #Contact {
+  margin-bottom: 30vh;
+}
+
+.v1-page #Contact.custom-card {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.v1-page .fixed-action-btn {
+  position: fixed;
+  bottom: 74px;
+  right: 18px;
+  z-index: 1000;
+}
+
+@media screen and (max-width: 768px) {
+  .mode-dial {
+    --dial-size: 90px;
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .dial-text {
+    font-size: 9px;
+  }
 }
