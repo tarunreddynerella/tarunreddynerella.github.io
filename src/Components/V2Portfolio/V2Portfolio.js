@@ -2,6 +2,9 @@ import React from "react";
 import "./V2Portfolio.css";
 import portfolioData from "./portfolioData";
 
+const externalLinkProps = (url) =>
+  url?.startsWith("http") ? { rel: "noreferrer", target: "_blank" } : {};
+
 function TagList({ items }) {
   return (
     <div className="v2-tags">
@@ -21,7 +24,7 @@ function ProofLinks({ links, status, label = "Project proof" }) {
     <div className="v2-proof-links" aria-label={label}>
       {status ? <span>{status}</span> : null}
       {links?.map((link) => (
-        <a href={link.url} key={link.url} rel="noreferrer" target="_blank">
+        <a href={link.url} key={link.url} {...externalLinkProps(link.url)}>
           {link.label}
         </a>
       ))}
@@ -34,7 +37,10 @@ function CertificationList({ certifications, compact = false }) {
     <ul className={`v2-cert-list${compact ? " v2-cert-list-compact" : ""}`}>
       {certifications.map((certification) => (
         <li key={certification.title}>
-          <a href={certification.url} rel="noreferrer" target="_blank">
+          <a
+            href={certification.url}
+            {...externalLinkProps(certification.url)}
+          >
             <span>{certification.title}</span>
             <small>
               {certification.issuer} | {certification.date}
@@ -79,10 +85,18 @@ function Hero({ profile }) {
           <a className="v2-button v2-button-primary" href={profile.resumePdf}>
             Download Resume
           </a>
-          <a className="v2-button" href={profile.links.linkedin}>
+          <a
+            className="v2-button"
+            href={profile.links.linkedin}
+            {...externalLinkProps(profile.links.linkedin)}
+          >
             LinkedIn
           </a>
-          <a className="v2-button" href={profile.links.github}>
+          <a
+            className="v2-button"
+            href={profile.links.github}
+            {...externalLinkProps(profile.links.github)}
+          >
             GitHub
           </a>
           <a className="v2-button" href={profile.links.email}>
@@ -294,7 +308,11 @@ function EducationAndEarlierWork({ education, earlierWork, research }) {
             <p>{item.body}</p>
             <div className="v2-link-grid">
               {item.links.map((link) => (
-                <a href={link.url} key={link.label}>
+                <a
+                  href={link.url}
+                  key={link.label}
+                  {...externalLinkProps(link.url)}
+                >
                   {link.label}
                 </a>
               ))}
@@ -322,7 +340,11 @@ function Contact({ profile }) {
         <a className="v2-button" href={profile.links.email}>
           {profile.email}
         </a>
-        <a className="v2-button" href={profile.links.linkedin}>
+        <a
+          className="v2-button"
+          href={profile.links.linkedin}
+          {...externalLinkProps(profile.links.linkedin)}
+        >
           LinkedIn
         </a>
       </div>
@@ -397,10 +419,18 @@ function ResumeMode({ certifications, profile, setMode }) {
           >
             Portfolio Mode
           </button>
-          <a className="v2-button" href={profile.links.linkedin}>
+          <a
+            className="v2-button"
+            href={profile.links.linkedin}
+            {...externalLinkProps(profile.links.linkedin)}
+          >
             LinkedIn
           </a>
-          <a className="v2-button" href={profile.links.github}>
+          <a
+            className="v2-button"
+            href={profile.links.github}
+            {...externalLinkProps(profile.links.github)}
+          >
             GitHub
           </a>
         </div>
