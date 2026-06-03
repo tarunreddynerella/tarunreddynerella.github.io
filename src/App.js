@@ -169,6 +169,19 @@ function App() {
     window.history.replaceState(null, "", nextUrl);
   }, [version, theme, mode]);
 
+  useEffect(() => {
+    if (version !== "v2" || mode !== "portfolio" || !window.location.hash) {
+      return undefined;
+    }
+
+    const targetId = decodeURIComponent(window.location.hash.slice(1));
+    const timeoutId = window.setTimeout(() => {
+      document.getElementById(targetId)?.scrollIntoView();
+    }, 80);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [version, mode]);
+
   const showV1 = version === "v1";
 
   const handleVersionToggle = () => {

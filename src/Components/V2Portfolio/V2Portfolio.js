@@ -29,6 +29,23 @@ function ProofLinks({ links, status, label = "Project proof" }) {
   );
 }
 
+function CertificationList({ certifications, compact = false }) {
+  return (
+    <ul className={`v2-cert-list${compact ? " v2-cert-list-compact" : ""}`}>
+      {certifications.map((certification) => (
+        <li key={certification.title}>
+          <a href={certification.url} rel="noreferrer" target="_blank">
+            <span>{certification.title}</span>
+            <small>
+              {certification.issuer} | {certification.date}
+            </small>
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 function TopNav({ profile }) {
   return (
     <header className="v2-topbar">
@@ -242,11 +259,7 @@ function Skills({ skills, certifications }) {
       </div>
       <div className="v2-cert-panel">
         <h3>Certifications</h3>
-        <ul>
-          {certifications.map((certification) => (
-            <li key={certification}>{certification}</li>
-          ))}
-        </ul>
+        <CertificationList certifications={certifications} />
       </div>
     </section>
   );
@@ -339,7 +352,7 @@ function PortfolioMode() {
   );
 }
 
-function ResumeMode({ profile, setMode }) {
+function ResumeMode({ certifications, profile, setMode }) {
   const openPortfolioSection = (sectionId) => {
     setMode("portfolio");
     window.setTimeout(() => {
@@ -350,13 +363,21 @@ function ResumeMode({ profile, setMode }) {
   return (
     <section className="v2-resume-shell" aria-labelledby="resume-heading">
       <div className="v2-resume-frame">
-        {profile.resumePages.map((page, index) => (
-          <img
-            src={page}
-            alt={`Tarun Reddy Nerella resume page ${index + 1}`}
-            key={page}
-          />
-        ))}
+        <object
+          aria-label="Tarun Reddy Nerella resume PDF"
+          className="v2-resume-pdf"
+          data={profile.resumePdf}
+          title="Tarun Reddy Nerella resume PDF"
+          type="application/pdf"
+        >
+          {profile.resumePages.map((page, index) => (
+            <img
+              src={page}
+              alt={`Tarun Reddy Nerella resume page ${index + 1}`}
+              key={page}
+            />
+          ))}
+        </object>
       </div>
       <aside className="v2-resume-side">
         <p className="v2-eyebrow">Resume Mode</p>
@@ -382,6 +403,10 @@ function ResumeMode({ profile, setMode }) {
           <a className="v2-button" href={profile.links.github}>
             GitHub
           </a>
+        </div>
+        <div className="v2-resume-cert-links">
+          <h2>Certification Proof</h2>
+          <CertificationList certifications={certifications} compact />
         </div>
         <div className="v2-question-list" aria-label="Quick recruiter prompts">
           <button type="button" onClick={() => openPortfolioSection("work")}>
@@ -411,7 +436,11 @@ function V2Portfolio({ theme, mode, setMode }) {
       <div className="v2-container">
         <TopNav profile={data.profile} />
         {mode === "resume" ? (
-          <ResumeMode profile={data.profile} setMode={setMode} />
+          <ResumeMode
+            certifications={data.certifications}
+            profile={data.profile}
+            setMode={setMode}
+          />
         ) : (
           <PortfolioMode />
         )}

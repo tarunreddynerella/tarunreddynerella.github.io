@@ -223,10 +223,30 @@ const portfolioData = {
     },
   ],
   certifications: [
-    "Microsoft Certified: Azure Data Engineer Associate | Apr 2024",
-    "Databricks Certified Data Engineer Associate | May 2024",
-    "Databricks Certified Data Engineer Professional | Jun 2024",
-    "Databricks Certified Generative AI Engineer Associate | May 2026",
+    {
+      title: "Microsoft Certified: Azure Data Engineer Associate",
+      date: "Apr 2024",
+      issuer: "Microsoft",
+      url: "https://learn.microsoft.com/en-gb/users/tarunreddynerella-7070/transcript/dg15gfegmmnkp1z",
+    },
+    {
+      title: "Databricks Certified Data Engineer Associate",
+      date: "May 2024",
+      issuer: "Databricks",
+      url: "https://credentials.databricks.com/ec6d4af2-437b-4a8a-8b7b-0ef2d7fb9bbf#gs.8zxlzx",
+    },
+    {
+      title: "Databricks Certified Data Engineer Professional",
+      date: "Jun 2024",
+      issuer: "Databricks",
+      url: "https://credentials.databricks.com/999dea26-a13b-45a6-a33c-c031ec5ccbf0#gs.9oesxt",
+    },
+    {
+      title: "Databricks Certified Generative AI Engineer Associate",
+      date: "May 2026",
+      issuer: "Databricks",
+      url: "https://credentials.databricks.com/e9fbc52b-33f1-4a57-be00-a776ef63b91b#acc.Y4NOhfbs",
+    },
   ],
   skills: [
     {
