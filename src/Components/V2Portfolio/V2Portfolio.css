@@ -418,6 +418,34 @@
   font-weight: 760;
 }
 
+.v2-proof-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.v2-proof-links a,
+.v2-proof-links span {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 12px;
+  font-weight: 820;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.v2-proof-links a {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.v2-proof-links span {
+  background: var(--paper-2);
+  color: var(--muted);
+}
+
 .v2-timeline {
   display: grid;
   gap: 14px;

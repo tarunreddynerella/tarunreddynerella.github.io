@@ -12,6 +12,23 @@ function TagList({ items }) {
   );
 }
 
+function ProofLinks({ links, status, label = "Project proof" }) {
+  if (!status && !links?.length) {
+    return null;
+  }
+
+  return (
+    <div className="v2-proof-links" aria-label={label}>
+      {status ? <span>{status}</span> : null}
+      {links?.map((link) => (
+        <a href={link.url} key={link.url} rel="noreferrer" target="_blank">
+          {link.label}
+        </a>
+      ))}
+    </div>
+  );
+}
+
 function TopNav({ profile }) {
   return (
     <header className="v2-topbar">
@@ -137,6 +154,11 @@ function CaseStudies({ studies }) {
               <p className="v2-meta">{study.meta}</p>
               <p>{study.problem}</p>
               <p>{study.outcome}</p>
+              <ProofLinks
+                label={`${study.title} proof links`}
+                links={study.links}
+                status={study.status}
+              />
             </div>
             <TagList items={study.stack} />
           </article>
@@ -160,6 +182,11 @@ function AiLab({ lab }) {
           <article className="v2-panel" key={item.title}>
             <h3>{item.title}</h3>
             <p>{item.body}</p>
+            <ProofLinks
+              label={`${item.title} proof links`}
+              links={item.links}
+              status={item.status}
+            />
             <TagList items={item.stack} />
           </article>
         ))}

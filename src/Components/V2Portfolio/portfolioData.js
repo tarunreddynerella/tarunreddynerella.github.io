@@ -65,6 +65,7 @@ const portfolioData = {
       id: "P.01",
       title: "Healthcare Lakehouse Migration",
       meta: "Hexaware Technologies | 2024 to present",
+      status: "Production client work",
       problem:
         "Production healthcare workflows needed migration from Azure Synapse patterns into Databricks lakehouse pipelines without losing validation, orchestration, or release controls.",
       outcome:
@@ -84,6 +85,12 @@ const portfolioData = {
       id: "P.02",
       title: "Data Contract Observability System",
       meta: "Azure Databricks, Delta Lake, Unity Catalog, Lakeflow | 2026",
+      links: [
+        {
+          label: "GitHub Repo",
+          url: "https://github.com/tarunreddynerella/data-contract-observability-system",
+        },
+      ],
       problem:
         "Downstream Delta tables needed stronger protection from schema drift, type changes, null spikes, freshness misses, row count drift, and SLA breaks.",
       outcome:
@@ -100,6 +107,12 @@ const portfolioData = {
       id: "P.03",
       title: "HomeOps AI Native Data Pipeline",
       meta: "GCP, Cloud Run, PostgreSQL, pgvector, LangGraph, MCP | 2025",
+      links: [
+        {
+          label: "GitHub Repo",
+          url: "https://github.com/tarunreddynerella/homeops-ai-native-data-pipeline",
+        },
+      ],
       problem:
         "New IoT device sources needed reusable ingestion adapters, inferred schemas, validation, metadata approval, and natural language operations without manual onboarding each time.",
       outcome:
@@ -117,6 +130,12 @@ const portfolioData = {
       id: "P.04",
       title: "ATRIA Human Agent CRM Workflow Platform",
       meta: "Next.js, NestJS, PostgreSQL, Redis, Ollama, BYOK | 2026",
+      links: [
+        {
+          label: "GitHub Repo",
+          url: "https://github.com/tarunreddynerella/atria-human-agent-crm-workflow-platform",
+        },
+      ],
       problem:
         "Human-agent CRM workflows needed clear approvals, trust scoring, relationship follow-ups, cost controls, and auditable AI actions.",
       outcome:
@@ -134,6 +153,12 @@ const portfolioData = {
       id: "P.05",
       title: "Codex Council Agent Collaboration Plugin",
       meta: "Claude Code, Codex CLI, Node.js, JSONL | 2026",
+      links: [
+        {
+          label: "GitHub Repo",
+          url: "https://github.com/tarunreddynerella/codex-council-agent-collaboration-plugin",
+        },
+      ],
       problem:
         "Agent collaboration needed repeatable handoffs, critique loops, transcript capture, validation, and secret-safe task packets across Claude, subagents, and Codex.",
       outcome:
@@ -144,12 +169,24 @@ const portfolioData = {
   aiLab: [
     {
       title: "Local Meeting Intelligence Agent",
+      links: [
+        {
+          label: "GitHub Repo",
+          url: "https://github.com/tarunreddynerella/local-meeting-intelligence-agent",
+        },
+      ],
       body:
         "Local Ollama workflow that converts transcripts into Obsidian graph notes for participants, decisions, actions, owners, and time-zone-aware follow-ups using Google Calendar context.",
       stack: ["Ollama", "Obsidian", "Google Calendar"],
     },
     {
       title: "ReAct Fitness Recommendation Agent",
+      links: [
+        {
+          label: "GitHub Repo",
+          url: "https://github.com/tarunreddynerella/react-fitness-recommendation-agent",
+        },
+      ],
       body:
         "Reasoning-loop agent that reviews 30 days of fitness exports, recent training load, recovery constraints, and workout history before emailing auditable recommendations.",
       stack: ["ReAct", "APIs", "Email Automation"],

@@ -163,7 +163,9 @@ function App() {
     }
 
     const query = params.toString();
-    const nextUrl = `${window.location.pathname}${query ? `?${query}` : ""}`;
+    const nextUrl = `${window.location.pathname}${query ? `?${query}` : ""}${
+      window.location.hash
+    }`;
     window.history.replaceState(null, "", nextUrl);
   }, [version, theme, mode]);
 
