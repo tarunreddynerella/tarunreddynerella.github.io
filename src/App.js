@@ -1,12 +1,19 @@
 import React, { Suspense, useEffect, useMemo, useState } from "react";
 import "./App.css";
 import V2Portfolio from "./Components/V2Portfolio/V2Portfolio";
+import V3Portfolio from "./Components/V3Portfolio/V3Portfolio";
 
 const V1Portfolio = React.lazy(() =>
   import("./Components/V1Portfolio/V1Portfolio")
 );
 
-const normalizeVersion = (value) => (value === "v1" ? "v1" : "v2");
+const VERSION_CYCLE = ["v1", "v2", "v3"];
+
+const normalizeVersion = (value) =>
+  VERSION_CYCLE.includes(value) ? value : "v3";
+
+const nextVersion = (value) =>
+  VERSION_CYCLE[(VERSION_CYCLE.indexOf(value) + 1) % VERSION_CYCLE.length];
 const normalizeTheme = (value) => (value === "day" ? "day" : "night");
 const normalizeMode = (value) => (value === "resume" ? "resume" : "portfolio");
 
@@ -74,15 +81,16 @@ function DialSegment({
 }
 
 function DisplayControls({
-  showV1,
+  version,
   theme,
   mode,
   onVersionToggle,
   onThemeToggle,
   onModeToggle,
 }) {
+  const showV1 = version === "v1";
   const effectiveMode = showV1 ? "portfolio" : mode;
-  const versionAction = showV1 ? "Open V2" : "Open V1";
+  const versionAction = `Open ${nextVersion(version).toUpperCase()}`;
   const themeAction = theme === "day" ? "Switch to night" : "Switch to day";
   const modeAction =
     effectiveMode === "portfolio" ? "Open resume mode" : "Open portfolio mode";
@@ -97,7 +105,7 @@ function DisplayControls({
       >
         <DialSegment
           className="dial-segment-version"
-          label={showV1 ? "V1" : "V2"}
+          label={version.toUpperCase()}
           actionLabel={versionAction}
           onActivate={onVersionToggle}
           start={-150}
@@ -149,6 +157,9 @@ function App() {
     document.body.classList.toggle("v2-body", version === "v2");
     document.body.classList.toggle("v2-night-body", version === "v2" && theme === "night");
     document.body.classList.toggle("v2-day-body", version === "v2" && theme === "day");
+    document.body.classList.toggle("v3-body", version === "v3");
+    document.body.classList.toggle("v3-night-body", version === "v3" && theme === "night");
+    document.body.classList.toggle("v3-day-body", version === "v3" && theme === "day");
   }, [version, theme]);
 
   useEffect(() => {
@@ -156,7 +167,7 @@ function App() {
     params.set("version", version);
     params.set("theme", theme);
 
-    if (version === "v2" && mode === "resume") {
+    if (version !== "v1" && mode === "resume") {
       params.set("mode", "resume");
     } else {
       params.delete("mode");
@@ -170,7 +181,7 @@ function App() {
   }, [version, theme, mode]);
 
   useEffect(() => {
-    if (version !== "v2" || mode !== "portfolio" || !window.location.hash) {
+    if (version === "v1" || mode !== "portfolio" || !window.location.hash) {
       return undefined;
     }
 
@@ -185,12 +196,14 @@ function App() {
   const showV1 = version === "v1";
 
   const handleVersionToggle = () => {
-    setVersion((currentVersion) => (currentVersion === "v1" ? "v2" : "v1"));
+    setVersion((currentVersion) => nextVersion(currentVersion));
     setMode("portfolio");
   };
 
   const handleModeToggle = () => {
-    setVersion("v2");
+    setVersion((currentVersion) =>
+      currentVersion === "v1" ? "v3" : currentVersion
+    );
     setMode((currentMode) =>
       currentMode === "portfolio" ? "resume" : "portfolio"
     );
@@ -208,12 +221,14 @@ function App() {
         >
           <V1Portfolio />
         </Suspense>
-      ) : (
+      ) : version === "v2" ? (
         <V2Portfolio theme={theme} mode={mode} setMode={setMode} />
+      ) : (
+        <V3Portfolio theme={theme} mode={mode} setMode={setMode} />
       )}
 
       <DisplayControls
-        showV1={showV1}
+        version={version}
         theme={theme}
         mode={mode}
         onVersionToggle={handleVersionToggle}

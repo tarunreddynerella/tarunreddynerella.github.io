@@ -31,6 +31,14 @@ body.v2-night-body {
   background: #111311;
 }
 
+body.v3-body {
+  background: #f3efe6;
+}
+
+body.v3-night-body {
+  background: #100f0d;
+}
+
 .mode-dial {
   --dial-ink: #22201c;
   --dial-muted: #665f54;
@@ -81,6 +89,27 @@ body.v1-body .mode-dial:focus-within {
 
 body.v1-body .mode-dial {
   --dial-core: rgba(16, 20, 44, 0.68);
+}
+
+body.v3-body .mode-dial {
+  --dial-ink: #111111;
+  --dial-muted: #44403a;
+  --dial-line: rgba(17, 17, 17, 0.35);
+  --dial-core: rgba(251, 249, 243, 0.72);
+  --dial-version: #002fa7;
+  --dial-theme: #ff4d00;
+  --dial-mode: #111111;
+}
+
+body.v3-night-body .mode-dial {
+  --dial-ink: #f3efe6;
+  --dial-muted: #c9c2b2;
+  --dial-line: rgba(243, 239, 230, 0.3);
+  --dial-core: rgba(26, 24, 19, 0.72);
+  --dial-version: #4d6fd6;
+  --dial-theme: #ff4d00;
+  --dial-mode: #f3efe6;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.32));
 }
 
 .dial-svg {
